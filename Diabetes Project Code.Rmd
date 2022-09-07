@@ -1,0 +1,26 @@
+---
+title: "Diabetes GitHub Demo"
+author: "Katie Wojcik"
+date: "2022-09-07"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+#import data from github
+library(readr)
+library(dplyr)
+
+diabetes.data <- read.csv("https://raw.githubusercontent.com/katiewojcik19/diabetes-project/main/DiabetesAtlasData.csv")
+```
+
+```{r}
+#find county with the highest diabetes rate
+diabetes.data %>%
+  slice_max(Diagnosed.Diabetes.Percentage)
+
+#Oglala Lakota County has highest diabetes rate
+```
